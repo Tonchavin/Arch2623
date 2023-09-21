@@ -4,6 +4,7 @@ import ModelElements.Camera;
 import ModelElements.Flash;
 import ModelElements.PoligonalModel;
 import ModelElements.Scene;
+import ModelElements.Texture;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +30,10 @@ public class ModelStore implements IModelChanger {
         this.flashes = new ArrayList<>();
         this.cameras = new ArrayList<>();
 
-        models.add(new PoligonalModel());
+        models.add(new PoligonalModel(new ArrayList<Texture>()));
         flashes.add(new Flash());
         cameras.add(new Camera());
-        scenes.add(new Scene());  
+        scenes.add(new Scene(0, models, flashes, cameras));  
     }
 
 
@@ -42,13 +43,13 @@ public class ModelStore implements IModelChanger {
      * @param ID
      * @return
      */
-    public Scene GetScena(int ID) {
-        // for (int i = 0; i < scenes.size(); i++) {
-        //     if (scenes.get(i).ID == ID) {
-        //         return scenes.get(i);
-        //     }
+    public Scene getScena(int id) {
+        for (int i = 0; i < scenes.size(); i++) {
+            if (scenes.get(i).id == id) {
+                return scenes.get(i);
+            }
 
-        // }
+        }
         return null;
     }
 
