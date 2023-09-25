@@ -3,12 +3,9 @@ package Fabric;
 import Interface.iGameItem;
 
 public abstract class ItemGenerator {
+    public abstract iGameItem createItem();
 
-    public void openReward()
-    {
-        iGameItem gameItem = createItem();
-        gameItem.open();
+    public void openReward() {
+        createItem().open();
     }
-
-    public abstract iGameItem createItem();    
 }

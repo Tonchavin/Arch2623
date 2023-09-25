@@ -3,50 +3,46 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import Fabric.GemGenerator;
-import Fabric.GoldGenerator;
-import Fabric.ItemGenerator;
-import Fabric.SilverGenerator;
+import Fabric.*;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        ItemGenerator f1 = new GemGenerator();
-        f1.openReward();
-        ItemGenerator f2 = new GoldGenerator();
-        f2.openReward();
-        ItemGenerator f3 = new SilverGenerator();
-        f3.openReward();
+    public static void main(String[] args) {
 
-        Random rnd = ThreadLocalRandom.current();
+        // Рандомайзер
+        Random random = ThreadLocalRandom.current();
 
-        List<ItemGenerator> generatorList = new ArrayList<>();
-        generatorList.add(new GoldGenerator());
-        generatorList.add(new GemGenerator());
-        generatorList.add(new SilverGenerator());
+        // Инициализация фабрик и их списка
+        List<ItemGenerator> fabrics = initFabrics();
 
-        int gemCounter = 0;
-        int goldCounter = 0;
-        int counter = 0;
-
-        for (int i = 0; i < 20; i++) {
-            boolean generet = true;
-           // while (generet) {
-
-                int index = rnd.nextInt(3);
-
-                if (index == 0) {
-                    gemCounter++;
-                }
-
-                if (index == 1) {
-                    goldCounter++;
-                }                
-
-                generatorList.get(index).openReward();
-                // int index = rnd.nextInt(2);
-                // System.out.println(index);
-                // generatorList.get(index).openReward();
-           // }
+        for (int i = 0; i < 200; i++) {
+            // Выбрасываем вес шанса (0 <= вес < 1)
+            int index = random.nextInt(fabrics.size());
+            fabrics.get(index).openReward();
         }
+    }
+
+    /**
+     * @return List of generators(fabrics)
+     */
+    // Фабричный инициализатор
+    public static List<ItemGenerator> initFabrics() {
+        List<ItemGenerator> fabrics = new ArrayList<>();
+
+        fabrics.add(new GemGenerator());
+
+        for (int i = 0; i < 3; i++) {
+            fabrics.add(new GoldGenerator());
+        }
+
+        for (int i = 0; i < 10; i++) {
+            fabrics.add(new SilverGenerator());
+            fabrics.add(new ClayGenerator());
+            fabrics.add(new CopperGenerator());
+            fabrics.add(new HerbGenerator());
+            fabrics.add(new LeatherGenerator());
+            fabrics.add(new PotionGenerator());
+        }
+
+        return fabrics;
     }
 }
