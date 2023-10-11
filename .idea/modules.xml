@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Arch2623.iml" filepath="$PROJECT_DIR$/.idea/Arch2623.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CarUP/CarUP.iml" filepath="$PROJECT_DIR$/CarUP/CarUP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Editor3d/Editor3d.iml" filepath="$PROJECT_DIR$/Editor3d/Editor3d.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HEXArchApp/HEXArchApp.iml" filepath="$PROJECT_DIR$/HEXArchApp/HEXArchApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HomeWork4/HomeWork4.iml" filepath="$PROJECT_DIR$/HomeWork4/HomeWork4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RewardGenerator/RewardGenerator.iml" filepath="$PROJECT_DIR$/RewardGenerator/RewardGenerator.iml" />
+    </modules>
+  </component>
+</project>
